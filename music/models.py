@@ -53,6 +53,36 @@ class SuggestedSongs(models.Model):
     personality = models.ForeignKey("personality.Personality", verbose_name=_("Personality"), on_delete=models.CASCADE)
     user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
     
+class LikeArtist(models.Model):
+    artist = models.ForeignKey("music.Artist", verbose_name=_("Artist"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    liked_at = models.DateTimeField(_("Liked at"), default=timezone.now)
+    
+class LikeSong(models.Model):
+    song = models.ForeignKey("music.Song", verbose_name=_("Song"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    liked_at = models.DateTimeField(_("Liked at"), default=timezone.now)
+    
+class DislikeArtist(models.Model):
+    artist = models.ForeignKey("music.Artist", verbose_name=_("Artist"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    isliked_at = models.DateTimeField(_("Disliked at"), default=timezone.now)
+    
+class DislikeSong(models.Model):
+    song = models.ForeignKey("music.Song", verbose_name=_("Song"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    disliked_at = models.DateTimeField(_("Disliked at"), default=timezone.now)
+    
+class ShareSong(models.Model):
+    song = models.ForeignKey("music.Song", verbose_name=_("Song"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    liked_at = models.DateTimeField(_("Liked at"), default=timezone.now)
+    
 
     
     
