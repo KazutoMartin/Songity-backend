@@ -5,7 +5,7 @@ from users.serializers import ProfileSerializer
 from users.serializers import UserSerilizer
 from rest_framework.response import Response
 from rest_framework import status
-from knox.models import AuthToken    
+from knox.models import AuthToken
 from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response

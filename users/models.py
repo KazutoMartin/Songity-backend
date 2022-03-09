@@ -23,7 +23,7 @@ class Profile(models.Model):
     liked_songs = models.ManyToManyField("music.Song", verbose_name=_("Liked Songs"))
     liked_artists = models.ManyToManyField("music.Artist", verbose_name=_("Liked Artists"))
     
-    personality = models.ForeignKey("personality.Personality", verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True,
+    current_personality = models.ForeignKey("personality.Personality", verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True,
                                     related_name='main_persoanlity')
     search_history = models.ManyToManyField("personality.Personality", verbose_name=_("Personality History"), related_name='persoanlity_history')
     

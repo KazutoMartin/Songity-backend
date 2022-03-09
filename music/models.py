@@ -39,7 +39,7 @@ class Song(models.Model):
     preview_url = models.URLField(_("Preview URL"), max_length=200)
     uri = models.URLField(_("URI"), max_length=200)
     duration_ms = models.IntegerField(_("Duration(ms)"))
-    spotify_analysis = models.ForeignKey(SpotifyAnalysis, verbose_name=_("spotify analysis"), on_delete=models.SET_NULL, null=True)
+    spotify_analysis = models.ForeignKey(SpotifyAnalysis, verbose_name=_("spotify analysis"), on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(_("Created at"), default=timezone.now)
 
 class PreviewListen(models.Model):
@@ -62,7 +62,7 @@ class LikeArtist(models.Model):
 class LikeSong(models.Model):
     song = models.ForeignKey("music.Song", verbose_name=_("Song"), on_delete=models.CASCADE)
     user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
-    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.SET_NULL, null=True)
+    personality = models.ForeignKey('personality.Personality', verbose_name=_("Personality"), on_delete=models.PROTECT)
     liked_at = models.DateTimeField(_("Liked at"), default=timezone.now)
     
 class DislikeArtist(models.Model):
