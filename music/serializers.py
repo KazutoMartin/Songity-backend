@@ -6,12 +6,12 @@ from users.models import Profile
 class LikeSongSerilizer(ModelSerializer):
     class Meta:
         model = LikeSong
-        fields = '__all__'
+        fields = ('song', 'personality')
     
 class LikeArtistSerilizer(ModelSerializer):
     class Meta:
         model = LikeArtist
-        fields = '__all__'
+        fields = ('artist', 'personality')
         
 
     class Meta:

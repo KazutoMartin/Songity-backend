@@ -1,12 +1,23 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, renderer_classes
 
 from .models import LikeSong, LikeArtist, DislikeSong, DislikeArtist
 from .serializers import DislikeSongSerilizer, LikeArtistSerilizer, LikeSongSerilizer, DislikeArtistSerilizer
 from rest_framework.permissions import IsAuthenticated
 
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
+
+test_param = openapi.Parameter('test', openapi.IN_QUERY, description="test manual param", type=openapi.TYPE_BOOLEAN)
+user_response = openapi.Response('response description', LikeSongSerilizer)
+
+
+
+# @swagger_auto_schema(method='get', manual_parameters=[test_param], responses={200: user_response})
+@swagger_auto_schema(methods=['post'], request_body=LikeSongSerilizer)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def like_song(request):
@@ -34,6 +45,8 @@ def like_song(request):
             'error': serializer.errors
         }, status=status.HTTP_406_NOT_ACCEPTABLE)
         
+        
+@swagger_auto_schema(methods=['post'], request_body=LikeArtistSerilizer)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def like_artist(request):
@@ -61,6 +74,8 @@ def like_artist(request):
             'error': serializer.errors
         }, status=status.HTTP_406_NOT_ACCEPTABLE)
         
+        
+@swagger_auto_schema(methods=['post'], request_body=DislikeArtistSerilizer)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def dislike_artist(request):
@@ -87,7 +102,9 @@ def dislike_artist(request):
             'code':406,
             'error': serializer.errors
         }, status=status.HTTP_406_NOT_ACCEPTABLE)
-        
+ 
+ 
+@swagger_auto_schema(methods=['delete'], request_body=LikeSongSerilizer)       
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def undo_like_song(request):
@@ -102,7 +119,8 @@ def undo_like_song(request):
         'response':'deleted'
     }, status=status.HTTP_200_OK)
     
-        
+
+@swagger_auto_schema(methods=['delete'], request_body=LikeArtistSerilizer)       
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def undo_like_artist(request):
@@ -116,7 +134,9 @@ def undo_like_artist(request):
         'object': serialized_object,
         'response':'deleted'
     }, status=status.HTTP_200_OK)
-        
+  
+  
+@swagger_auto_schema(methods=['delete'], request_body=DislikeSongSerilizer)             
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def undo_dislike_song(request):
@@ -131,6 +151,8 @@ def undo_dislike_song(request):
         'response':'deleted'
     }, status=status.HTTP_200_OK)
         
+        
+@swagger_auto_schema(methods=['delete'], request_body=DislikeArtistSerilizer)             
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def undo_dislike_artist(request):

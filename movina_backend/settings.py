@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'corsheaders',
+    'coreapi',
+    'drf_yasg',
     
     'users',
     'music',
@@ -144,7 +146,9 @@ CORS_ORIGIN_WHITELIST = (
 
 # Rest Framework
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_RENDERER_CLASSES': [renderers.OpenAPIRenderer, renderers.SwaggerUIRenderer]
 }
 
 GOOGLE_OAUTH2_CLIENT_ID = "602561587568-rrqlpgv3al5ibgi5gqek1p2oldvnbl12.apps.googleusercontent.com"
