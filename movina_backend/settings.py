@@ -144,7 +144,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3001',
        'http://127.0.0.1:3001',
-       'https://songity-front.herokuapp.com/'
+       'https://songity-front.herokuapp.com'
 )
 
 # Rest Framework
