@@ -26,7 +26,6 @@ inflection==0.5.1
 itypes==1.2.0
 Jinja2==3.1.1
 jmespath==1.0.0
-knox==0.1.14
 loguru==0.6.0
 MarkupSafe==2.1.1
 packaging==21.3
