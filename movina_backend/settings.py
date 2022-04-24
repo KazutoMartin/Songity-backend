@@ -144,8 +144,13 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3001',
        'http://127.0.0.1:3001',
-       'https://songity-front.herokuapp.com'
+       'https://songity-front.herokuapp.com',
+       'songity-backend.herokuapp.com'
 )
+ALLOWED_HOSTS = ['http://localhost:3001',
+       'http://127.0.0.1:3001',
+       'https://songity-front.herokuapp.com',
+       'songity-backend.herokuapp.com']
 
 # Rest Framework
 REST_FRAMEWORK = {
@@ -155,6 +160,8 @@ REST_FRAMEWORK = {
 }
 
 GOOGLE_OAUTH2_CLIENT_ID = "602561587568-rrqlpgv3al5ibgi5gqek1p2oldvnbl12.apps.googleusercontent.com"
+
+
 
 from datetime import timedelta
 
