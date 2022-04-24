@@ -36,3 +36,4 @@ uritemplate==4.1.1
 urllib3==1.26.9
 validators==0.18.2
 win32-setctime==1.1.0
+gunicorn==41.2.0
