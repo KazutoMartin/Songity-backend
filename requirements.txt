@@ -8,6 +8,7 @@ coreschema==0.0.4
 cryptography==36.0.2
 Django==4.0.4
 django-cors-headers==3.11.0
+django-extensions==3.1.5
 django-rest-framework==0.1.0
 django-rest-knox==4.2.0
 djangorestframework==3.13.1
