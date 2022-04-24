@@ -1,0 +1,1 @@
+web: gunicorn rastad5.wsgi --log-file -
