@@ -145,7 +145,7 @@ CORS_ORIGIN_WHITELIST = (
        'http://localhost:3001',
        'http://127.0.0.1:3001',
        'https://songity-front.herokuapp.com',
-       'songity-backend.herokuapp.com',
+       'https://songity-backend.herokuapp.com',
 )
 ALLOWED_HOSTS = [
     'http://localhost:3001',
