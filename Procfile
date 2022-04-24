@@ -1,1 +1,1 @@
-web: gunicorn rastad5.wsgi --log-file -
+web: gunicorn movina_backend.wsgi --log-file -
