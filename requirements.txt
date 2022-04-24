@@ -1,5 +1,7 @@
 asgiref==3.5.0
 backports.zoneinfo==0.2.1
+boto3==1.21.46
+botocore==1.24.46
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -13,6 +15,7 @@ Django==4.0.4
 django-cors-headers==3.11.0
 django-extensions==3.1.5
 django-rest-framework==0.1.0
+django-rest-knox==4.2.0
 djangorestframework==3.13.1
 drf-yasg==1.20.0
 dynaconf==3.1.8
@@ -22,16 +25,19 @@ idna==3.3
 inflection==0.5.1
 itypes==1.2.0
 Jinja2==3.1.1
+jmespath==1.0.0
 knox==0.1.14
 loguru==0.6.0
 MarkupSafe==2.1.1
 packaging==21.3
 pycparser==2.21
 pyparsing==3.0.8
+python-dateutil==2.8.2
 pytz==2022.1
 requests==2.27.1
 ruamel.yaml==0.17.21
 ruamel.yaml.clib==0.2.6
+s3transfer==0.5.2
 shortuuid==1.0.8
 six==1.16.0
 sqlparse==0.4.2
