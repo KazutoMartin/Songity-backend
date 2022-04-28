@@ -141,16 +141,22 @@ STATIC_URL = '/static/'
 # CORS
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
        'http://localhost:3001',
        'http://127.0.0.1:3001',
        'https://songity-front.herokuapp.com',
        'https://songity-backend.herokuapp.com',
+        'https://backend-songity.herokuapp.com',
+       
 )
 ALLOWED_HOSTS = [
-'*'
+        'http://localhost:3001',
+        'http://127.0.0.1:3001',
+        'https://songity-front.herokuapp.com',
+        'https://songity-backend.herokuapp.com',
+        'https://backend-songity.herokuapp.com',
        ]
 
 # Rest Framework
