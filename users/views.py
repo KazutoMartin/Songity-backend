@@ -52,10 +52,12 @@ class UserInitApi(PublicApiMixin, ApiErrorsMixin, APIView):
                 user.profile.save()
             
             token = Token.objects.get_or_create(user=user)
-            print(token.key)
+            print(token[0])
+            print(token[0].key)
+            
             
 
-            return Response({'code':200, 'user':UserSerilizer(user).data, 'profile':ProfileSerializer(user.profile).data, 'token':token.key}, status=status.HTTP_200_OK)
+            return Response({'code':200, 'user':UserSerilizer(user).data, 'profile':ProfileSerializer(user.profile).data, 'token':token[0].key}, status=status.HTTP_200_OK)
         else:
             print(serializer.errors)
             return Response({'code':400, 'errors':serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
