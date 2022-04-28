@@ -157,6 +157,7 @@ ALLOWED_HOSTS = [
         'https://songity-front.herokuapp.com',
         'https://songity-backend.herokuapp.com',
         'https://backend-songity.herokuapp.com',
+        'backend-songity.herokuapp.com'
        ]
 
 # Rest Framework
