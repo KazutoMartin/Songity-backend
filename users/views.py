@@ -51,8 +51,7 @@ class UserInitApi(PublicApiMixin, ApiErrorsMixin, APIView):
                 user.profile.google_profile_url = serializer.validated_data.get('profile_pic')
                 user.profile.save()
             
-            token = Token.objects.create(user=user)
-            token.save()
+            token = Token.objects.get_or_create(user=user)
             print(token.key)
             
 
