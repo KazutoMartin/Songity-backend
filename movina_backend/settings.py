@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django_extensions',
     
     'rest_framework',
-    'knox',
+    'rest_framework.authtoken',
     'corsheaders',
     'coreapi',
     'drf_yasg',
@@ -152,8 +152,11 @@ ALLOWED_HOSTS = [
        ]
 
 # Rest Framework
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     # 'DEFAULT_RENDERER_CLASSES': [renderers.OpenAPIRenderer, renderers.SwaggerUIRenderer]
 }

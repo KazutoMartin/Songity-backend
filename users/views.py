@@ -5,7 +5,7 @@ from users.serializers import ProfileSerializer
 from users.serializers import UserSerilizer
 from rest_framework.response import Response
 from rest_framework import status
-from knox.models import AuthToken
+from rest_framework.authtoken.models import Token
 from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -51,12 +51,12 @@ class UserInitApi(PublicApiMixin, ApiErrorsMixin, APIView):
                 user.profile.google_profile_url = serializer.validated_data.get('profile_pic')
                 user.profile.save()
             
-            token = AuthToken(user)
+            token = Token.objects.create(user=user)
             token.save()
-            print(token[1])
+            print(token.key)
             
 
-            return Response({'code':200, 'user':UserSerilizer(user).data, 'profile':ProfileSerializer(user.profile).data, 'token':token[1]}, status=status.HTTP_200_OK)
+            return Response({'code':200, 'user':UserSerilizer(user).data, 'profile':ProfileSerializer(user.profile).data, 'token':token.key}, status=status.HTTP_200_OK)
         else:
             print(serializer.errors)
             return Response({'code':400, 'errors':serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

@@ -5,12 +5,10 @@ cffi==1.15.0
 charset-normalizer==2.0.12
 coreapi==2.3.3
 coreschema==0.0.4
-cryptography==36.0.2
+cryptography==37.0.1
 Django==4.0.4
 django-cors-headers==3.11.0
 django-extensions==3.1.5
-django-rest-framework==0.1.0
-django-rest-knox==4.2.0
 djangorestframework==3.13.1
 drf-yasg==1.20.0
 gunicorn==20.1.0
