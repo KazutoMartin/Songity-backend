@@ -27,7 +27,9 @@ class SpotifyAnalysis(models.Model):
     created_at = models.DateTimeField(_("Created at"), default=timezone.now)
     
 
-
+class Genre(models.Model):
+    name = models.CharField(_("Name"), max_length=50)
+    similarity = models.FloatField(_("Similarity"))
 
 class Song(models.Model):
     name = models.CharField(_("Name"), max_length=50)
@@ -41,6 +43,11 @@ class Song(models.Model):
     duration_ms = models.IntegerField(_("Duration(ms)"))
     spotify_analysis = models.ForeignKey(SpotifyAnalysis, verbose_name=_("spotify analysis"), on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(_("Created at"), default=timezone.now)
+    first_genre = models.ForeignKey(Genre, verbose_name=_(""), on_delete=models.SET_NULL, null=True)
+    second_genre = models.ForeignKey(Genre, verbose_name=_(""), on_delete=models.SET_NULL, null=True)
+    third_genre = models.ForeignKey(Genre, verbose_name=_(""), on_delete=models.SET_NULL, null=True)
+    
+    
 
 class PreviewListen(models.Model):
     user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
